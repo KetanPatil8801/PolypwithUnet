@@ -53,3 +53,14 @@ def tf_dataset(x, y, batch=8):
     dataset = dataset.batch(batch)
     dataset = dataset.repeat()
     return dataset
+
+if __name__ = "__main__":
+    print("")
+    path = "Kvasir-SEG"
+    (train_x,train_y),(valid_x,valid_y),(test_x,test_y) = load_data(path)
+    print(len(train_x),len(valid_x),len(test_x))
+    
+    ds = tf_dataset(test_x,test_y)
+    for x,y in ds:
+        print(x.shape,y.shape)
+        break
